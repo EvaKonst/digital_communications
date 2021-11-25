@@ -1,0 +1,11 @@
+temp2 = data{1}(:,1)
+temp2 = strjoin(temp2)
+temp2= temp2(find(~isspace(temp2)))
+temp2(regexp(temp2,'[-/]'))=[]
+idx2 = isstrprop(temp2,'upper')
+temp2(idx2) = lower(temp2(idx2))
+ns = numel(temp2);
+n=2;
+A = cellstr(reshape([temp2 repmat(' ',1,ceil(ns/n)*n-ns)],n,[])')'
+A(14559)=[]
+encBextA=huffmanenco(A,callAext);
